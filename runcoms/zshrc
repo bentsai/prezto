@@ -11,3 +11,28 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+export EDITOR=nvim
+export VISUAL=nvim
+export KLOG_FILE=~/Dropbox/Notes/Log.md
+
+export P4PORT=stbu-p4-clm.cisco.com:1666
+export P4USER=betsai
+export P4CLIENT=betsai-ims
+export ANDROID_HOME=/usr/local/opt/android-sdk
+export PATH="$PATH:`yarn global bin`"
+
+alias vim=nvim
+alias vi=nvim
+alias ag=ag --pager "less -R"
+alias d='doing now'
+alias k='~/Code/t/k'
+alias bible='~/Code/bible-fetch/bible'
+
+function bf() {
+  ~/Code/bible-fetch/bible $@ --ascii | pbcopy;
+}
+function kl() {
+  echo $@ | ~/Code/t/k;
+}
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
