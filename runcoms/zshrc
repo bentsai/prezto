@@ -27,12 +27,46 @@ alias ag=ag --pager "less -R"
 alias d='doing now'
 alias k='~/Code/t/k'
 alias bible='~/Code/bible-fetch/bible'
+alias lst="ls -alh"
+
+# Directory navigation
+alias ..="cd ../"
+alias ...="cd ../.."
+alias ....="cd ../../.."
 
 function bf() {
   ~/Code/bible-fetch/bible $@ --ascii | pbcopy;
 }
 function kl() {
   echo $@ | ~/Code/t/k;
+}
+
+function pull {
+  if [ -n "$1" ]; then
+  git pull origin "$1"
+  else
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  git pull origin $branch
+  fi
+}
+function push {
+  if [ -n "$1" ]; then
+  git push origin "$1"
+  else
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  git push origin $branch
+  fi
+}
+function pr {
+  local dir="$PWD"
+  until [[ -z "$dir" ]]; do
+    if [ -d ./.git ]; then
+      break
+    else
+      cd ..
+    fi
+    dir="${dir%/*}"
+  done
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -42,3 +76,7 @@ export NVM_DIR="/Users/betsai/.nvm"
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
 eval "$(pyenv init -)"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
