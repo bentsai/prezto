@@ -18,6 +18,7 @@ export KLOG_FILE=~/Dropbox/Notes/Log.md
 export P4PORT=stbu-p4-clm.cisco.com:1666
 export P4USER=betsai
 export P4CLIENT=betsai-ims
+export P4CONFIG=.p4config
 export ANDROID_HOME=/usr/local/opt/android-sdk
 export PATH="$PATH:`yarn global bin`"
 
@@ -28,6 +29,7 @@ alias d='doing now'
 alias k='~/Code/t/k'
 alias bible='~/Code/bible-fetch/bible'
 alias lst="ls -alh"
+alias rm=trash
 
 # Directory navigation
 alias ..="cd ../"
@@ -80,3 +82,9 @@ eval "$(pyenv init -)"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+PATH="/Users/betsai/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/betsai/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/betsai/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/betsai/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/betsai/perl5"; export PERL_MM_OPT;
