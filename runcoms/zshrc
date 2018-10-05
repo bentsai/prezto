@@ -30,6 +30,8 @@ alias k='~/Code/t/k'
 alias bible='~/Code/bible-fetch/bible'
 alias lst="ls -alh"
 alias rm=trash
+alias g='git'
+alias cat='bat'
 
 # Directory navigation
 alias ..="cd ../"
@@ -73,12 +75,6 @@ function pr {
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-export NVM_DIR="/Users/betsai/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-
-eval "$(pyenv init -)"
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
@@ -88,3 +84,6 @@ PERL5LIB="/Users/betsai/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5L
 PERL_LOCAL_LIB_ROOT="/Users/betsai/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/Users/betsai/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/betsai/perl5"; export PERL_MM_OPT;
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
